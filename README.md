@@ -9,6 +9,7 @@ Planned Features
 - stable Rails 4 Support
 - unobstrusive additive updating of cached Table on demand (won't break on duplicate keys)
 - optional warning, if chosen attribute isn't defined as unique column
+- generating constant-stubs for code-completion on demand
 - ...
 
 Feel free to suppose more Features. :)
