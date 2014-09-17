@@ -10,6 +10,7 @@ Planned Features
 - unobstrusive additive updating of cached Table on demand (won't break on duplicate keys)
 - optional warning, if chosen attribute isn't defined as unique column
 - generating constant-stubs for code-completion on demand
+- custom rule how to name the constant (e.g. `key_value: 'ConstantCache'` => `CONSTANT_CACHE` instead of `CONSTANTCACHE`)
 - ...
 
 Feel free to suppose more Features. :)
