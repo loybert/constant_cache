@@ -7,20 +7,13 @@ require 'mocha'
 require 'active_support'
 require 'active_record'
 
+require 'nulldb_rspec'
+include NullDB::RSpec::NullifiedDatabase
+
+
 lib_dir = File.join(File.dirname(__FILE__), %w(.. lib constant_cache))
 
 Dir.glob("#{lib_dir}/*.rb").each { |file| require file }
-
-module ConstantCache
-  module SpecHelper
-    def enable_caching(klass, values = [], additional_options = {})
-      return_values = values.empty? ? [] : values.map { |params| klass.new(params) }
-
-      klass.expects(:find).with(:all).returns(return_values)
-      klass.caches_constants(additional_options)
-    end
-  end
-end
 
 # Spec::Runner.configuration.mock_with :mocha
 # Spec::Runner.configuration.include ConstantCache::SpecHelper
