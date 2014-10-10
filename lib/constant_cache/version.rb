@@ -1,0 +1,3 @@
+module ConstantCache
+  VERSION = "0.0.1"
+end
