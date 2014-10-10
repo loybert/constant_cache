@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe SimpleClass, 'with constant_cache mix-in' do
+  include NullDB::RSpec::NullifiedDatabase
 
   before { @value = 'pony' }
 

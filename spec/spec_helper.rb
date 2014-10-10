@@ -9,7 +9,7 @@ require 'active_record'
 
 require 'nulldb_rspec'
 include NullDB::RSpec::NullifiedDatabase
-
+#:schema  => 'foo/myschema.rb'
 
 lib_dir = File.join(File.dirname(__FILE__), %w(.. lib constant_cache))
 
@@ -59,16 +59,10 @@ RSpec.configure do |config|
   config.include ConstantCache::SpecHelper
 end
 
-
-
 ActiveRecord::Base.send(:include, ConstantCache::CacheMethods::InstanceMethods)
 ActiveRecord::Base.send(:extend, ConstantCache::CacheMethods::ClassMethods)
 
 class BaseClass < ActiveRecord::Base
-  def primary_key
-    :id
-  end
-
   def self.columns
     []
   end
