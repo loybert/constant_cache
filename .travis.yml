@@ -14,20 +14,14 @@ env:
 #  - DB=sqlite
 #  - DB=postgresql
 
-
 before_install:
   - gem update --system
   - gem --version
 
-before_script:
-  # - bundle exec rake db:setup
-
 script:
-  - bundle exec rake
+#  - bundle exec rake
   - bundle exec rspec
 
-after_script:
-  # - bundle exec rake db:setup
 
 #branches: #BE CAREFUL
 #  only:
