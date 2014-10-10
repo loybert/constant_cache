@@ -1,5 +1,6 @@
 contant_cache
 =============
+[![Build Status](https://travis-ci.org/loybert/constant_cache.svg?branch=rails-plugin)](https://travis-ci.org/loybert/constant_cache)
 
 a clone of "http://rubygems.org/gems/constant_cache", to provide this nice functionality on rails 4 and above
 
@@ -9,13 +10,16 @@ Planned Features
 - unobstrusive additive updating of cached Table on demand (won't break on duplicate keys)
 - optional warning, if chosen attribute isn't defined as unique column
 - generating constant-stubs for code-completion on demand
-- custom rule how to name the constant (e.g. `key_value: 'ConstantCache'` => `CONSTANT_CACHE` instead of `CONSTANTCACHE`)
 - use concerns instead of mixins
-- move constant_name into Helper, instead of extending String Class
 - ...
 
 Feel free to suppose more Features. :)
 
+
+New Features
+============
+- moved constant_name into Helper, instead of extending String Class
+- custom rule how to name the constant (e.g. `key_value: 'ConstantCache'` => `CONSTANT_CACHE` instead of `CONSTANTCACHE`)
 
 
 
