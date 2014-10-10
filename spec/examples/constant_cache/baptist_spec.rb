@@ -3,8 +3,9 @@ describe 'ConstantCache::Baptist' do
   context '#resolve_constant_name' do
 
     # CamelCase => CAMEL_CASE
-
-
+    it 'should upcase its characters and separate CamelCased strings' do
+      expect(ConstantCache::Baptist.resolve_constant_name('TestCase')).to eq('TEST_CASE')
+    end
 
 
 
