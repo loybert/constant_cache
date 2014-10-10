@@ -1,12 +1,6 @@
-module ConstantCache
-  CHARACTER_LIMIT = 64
-end
-
-
+require 'constant_cache/config'
 require 'constant_cache/baptist'
 require 'constant_cache/cache_methods'
-
-
 
 module ConstantCache
   # load Railtie if Rails exists
