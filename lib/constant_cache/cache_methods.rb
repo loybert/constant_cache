@@ -1,5 +1,4 @@
 module ConstantCache
-
   #
   # Generated constant conflicts with an existing constant
   #
@@ -8,9 +7,7 @@ module ConstantCache
   end
 
   module CacheMethods #:nodoc:
-
     module ClassMethods
-
       #
       # The caches_constants method is the core of the functionality behind this mix-in.  It provides
       # a simple interface to cache the data in the corresponding table as constants on the model:
@@ -40,17 +37,16 @@ module ConstantCache
       def caches_constants(additional_options = {})
         cattr_accessor :cache_options
 
-        self.cache_options = {:key => :name, :limit => ConstantCache::CHARACTER_LIMIT}.merge(additional_options)
+        self.cache_options = { key: :name, limit: ConstantCache::CHARACTER_LIMIT }.merge(additional_options)
 
-        raise ConstantCache::InvalidLimitError, "Limit of #{self.cache_options[:limit]} is invalid" if self.cache_options[:limit] < 1
-        all.each {|model| model.set_instance_as_constant }
+        fail ConstantCache::InvalidLimitError, "Limit of #{cache_options[:limit]} is invalid" if cache_options[:limit] < 1
+        all.each(&:set_instance_as_constant)
       end
     end
 
     module InstanceMethods
-
       def constant_name #:nodoc:
-        constant_name = self.send(self.class.cache_options[:key].to_sym).constant_name
+        constant_name = send(self.class.cache_options[:key].to_sym).constant_name
         constant_name = constant_name[0, self.class.cache_options[:limit]] unless constant_name.blank?
         constant_name
       end
@@ -61,12 +57,12 @@ module ConstantCache
       #
       def set_instance_as_constant
         const = constant_name
-        if !const.blank?
+        unless const.blank?
           if self.class.const_defined?(const)
-            message = "Constant #{self.class.to_s}::#{const} has already been defined"
-            raise ConstantCache::DuplicateConstantError, message
+            message = "Constant #{self.class}::#{const} has already been defined"
+            fail ConstantCache::DuplicateConstantError, message
           end
-          self.class.const_set(const, self) if !const.blank?
+          self.class.const_set(const, self) unless const.blank?
         end
       end
 
@@ -75,8 +71,6 @@ module ConstantCache
       #   constant_name = constant_name()
       #   self.class.send(:remove_const, constant_name) if self.class.const_defined?(constant_name)
       # end
-
     end
-
   end
 end
