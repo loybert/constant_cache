@@ -3,12 +3,12 @@ cache: bundler
 rvm:
   - 2.1.2
   - 2.1.0
-  - jruby-18mode
-  - jruby-19mode
+#  - jruby-18mode
+#  - jruby-19mode
   - rbx-2
   - ruby-head
-  - jruby-head
-  - ree
+#  - jruby-head
+#  - ree
 
 env:
 #  - DB=sqlite
