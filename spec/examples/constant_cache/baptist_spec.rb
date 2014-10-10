@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/../../spec_helper'
+
 describe 'ConstantCache::Baptist' do
 
   context '#resolve_constant_name' do
@@ -5,6 +7,10 @@ describe 'ConstantCache::Baptist' do
     # CamelCase => CAMEL_CASE
     it 'should upcase its characters and separate CamelCased strings' do
       expect(ConstantCache::Baptist.resolve_constant_name('TestCase')).to eq('TEST_CASE')
+    end
+
+    it 'should upcase its characters and separate CamelCased strings' do
+      expect(ConstantCache::Baptist.resolve_constant_name('SSLError')).to eq('SSL_ERROR')
     end
 
 
