@@ -4,7 +4,7 @@ module ConstantCache
 
 
   # this module provides constant_names by config
-  module Baptist
+  module Helper
 
     #
     # A method to create a constant name from the existing string.  This method condenses
