@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   # additional spec
   s.platform = Gem::Platform::RUBY
   s.has_rdoc = true
-  s.extra_rdoc_files = %w(README MIT-LICENSE HISTORY)
+  s.extra_rdoc_files = %w(README.md MIT-LICENSE HISTORY)
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
