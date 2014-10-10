@@ -46,7 +46,8 @@ module ConstantCache
 
     module InstanceMethods
       def constant_name #:nodoc:
-        constant_name = send(self.class.cache_options[:key].to_sym).constant_name
+
+        constant_name = ConstantCache::Baptist.resolve_constant_name(send(self.class.cache_options[:key].to_sym))
         constant_name = constant_name[0, self.class.cache_options[:limit]] unless constant_name.blank?
         constant_name
       end
