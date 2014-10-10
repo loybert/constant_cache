@@ -15,7 +15,7 @@ module ConstantCache
     #
 
     # @arg string
-    def self.resolve_constant_name key
+    def resolve_constant_name key
       value = key.underscore.strip.gsub(/\s+/, '_').gsub(/[^\w_]/, '').gsub(/_{2,}/, '_').upcase
       value = nil if value.blank?
       value

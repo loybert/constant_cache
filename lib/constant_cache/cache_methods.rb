@@ -1,3 +1,5 @@
+require 'constant_cache/helper'
+
 module ConstantCache
   #
   # Generated constant conflicts with an existing constant
@@ -45,9 +47,11 @@ module ConstantCache
     end
 
     module InstanceMethods
+      include ConstantCache::Helper
+
       def constant_name #:nodoc:
 
-        constant_name = ConstantCache::Helper.resolve_constant_name(send(self.class.cache_options[:key].to_sym))
+        constant_name = resolve_constant_name(send(self.class.cache_options[:key].to_sym))
         constant_name = constant_name[0, self.class.cache_options[:limit]] unless constant_name.blank?
         constant_name
       end
