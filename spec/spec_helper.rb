@@ -37,10 +37,38 @@ if false
   end
 end
 
+
+module ConstantCache
+  module SpecHelper
+    def enable_caching(klass, values = [], additional_options = {})
+      return_values = values.empty? ? [] : values.map { |params| klass.new(params) }
+
+      allow(klass).to receive(:all) { return_values }
+
+      ##allow(ActiveRecord::Base).to receive(:      return_values = values.empty? ? [] : values.map { |params| klass.new(params) }
+
+      klass.caches_constants(additional_options)
+    end
+  end
+end
+
+
+
+
+RSpec.configure do |config|
+  config.include ConstantCache::SpecHelper
+end
+
+
+
 ActiveRecord::Base.send(:include, ConstantCache::CacheMethods::InstanceMethods)
 ActiveRecord::Base.send(:extend, ConstantCache::CacheMethods::ClassMethods)
 
 class BaseClass < ActiveRecord::Base
+  def primary_key
+    :id
+  end
+
   def self.columns
     []
   end
