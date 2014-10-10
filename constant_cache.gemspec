@@ -37,11 +37,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec"
   s.add_development_dependency "mocha"
+  s.add_development_dependency "transpec"
   s.add_development_dependency "bundler", "~> 1.7"
   s.add_development_dependency "rake", "~> 10.0"
-
-
-  s.add_development_dependency('activerecord') # '>= 2.0.2'
-  s.add_development_dependency('activesupport') #'>= 2.0.2'
 
 end
