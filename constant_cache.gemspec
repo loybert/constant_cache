@@ -20,16 +20,28 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = %w(README.md MIT-LICENSE HISTORY)
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  # spec.files         = `git ls-files -z`.split("\x0")
+  #spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  #spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   s.test_files = Dir["test/**/*"]
 
 
 
   s.add_dependency "rails", "~> 4.1.6"
-  #s.add_dependency('activerecord', '>= 2.0.2')
-  #s.add_dependency('activesupport', '>= 2.0.2')
+  s.add_dependency('activerecord') # '>= 2.0.2'
+  s.add_dependency('activesupport') #'>= 2.0.2'
 
 
-
+  s.require_paths = ["lib"]
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "bundler", "~> 1.7"
+  s.add_development_dependency "rake", "~> 10.0"
+
+
+  s.add_development_dependency('activerecord') # '>= 2.0.2'
+  s.add_development_dependency('activesupport') #'>= 2.0.2'
+
 end
