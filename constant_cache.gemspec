@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   # spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 4.1.6'
+  #s.add_dependency 'rails', '~> 4.1.6'
   s.add_dependency('activerecord') # '>= 2.0.2'
   s.add_dependency('activesupport') # '>= 2.0.2'
 
